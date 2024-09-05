@@ -1,9 +1,11 @@
 <script setup>
+import BaseNotification from '/src/assets/components/BaseNotification.vue';
 </script>
 
 <template>
-  <main>
-  </main>
+  <div>
+    <BaseNotification />
+  </div>
 </template>
 
 <style scoped>
