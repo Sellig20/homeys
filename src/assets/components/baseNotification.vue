@@ -5,9 +5,9 @@
                     <img :src="icon" alt="notification">
                     <p>{{title}}</p>
                 </div>
-                <div class="cross">
-                    <p>X</p>
-                </div>
+                <button @click="handleDelete" class="cross">
+                    X
+                </button>
             </div>
             <div class="notification-frame">
                 <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor</p>
@@ -23,6 +23,7 @@ export default {
         icon: String,
         color: String,
         borderColor: String,
+        notificationId: Number,
         required: true
     },
     methods: {
@@ -69,6 +70,13 @@ export default {
 
 .cross {
     display: flex;
+    border: none;
+    cursor: pointer;
+    background-color: transparent;
+}
+
+.cross:hover {
+    font-size: 17px;
 }
 
 .notification-frame {
