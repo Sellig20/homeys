@@ -1,46 +1,82 @@
 <template>
-  <div class="notification">
-    <div class="notification-modal-header">
-        <img src="/src/assets/icons/Danger.svg" alt="Danger">
-        <p>Modal Window</p>
-        <p class="cross">X</p>
-    </div>
-    <div class="notification-frame">
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor</p>
-    </div>
-  </div>
+        <div class="notification" :style="notificationStyle">
+            <div class="notification-modal-header">
+                <div class="notification-title">
+                    <img :src="icon" alt="notification">
+                    <p>{{title}}</p>
+                </div>
+                <div class="cross">
+                    <p>X</p>
+                </div>
+            </div>
+            <div class="notification-frame">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor</p>
+            </div>
+        </div>
 </template>
 
-<script setup>
+<script>
+export default {
+    name: 'BaseNotification',
+    props: {
+        title: String,
+        icon: String,
+        color: String,
+        borderColor: String,
+        required: true
+    },
+    methods: {
+        handleDelete() {
+            this.$emit('delete', this.notificationId)
+        }
+    },
+    computed: {
+        notificationStyle() {
+            return {
+                backgroundColor: this.color,
+                border: `2px solid ${this.borderColor}`
+            };
+        }
+    }
+}
 </script>
 
-<style scoped> 
+<style scoped>
 .notification {
     width: 527px;
     height: 160px;
-    radius: 16px;
-    border: 2px solid #D29393;
     padding: 24px;
-    background: #F7E4E4;
+    border: 2px solid;
+    radius: 16px;
     border-radius: 8px;
     box-shadow: 0px 6px 12px 0px #0000001A;
 }
 
-.cross {
-    padding: 0px 0px 0px 256px;
-}
-
 .notification-modal-header {
     display: flex;
+    width: 479px;
+    height: 32px;
+    justify-content: space-between;
+    margin-bottom: 8px;
     gap: 16px;
     font-size: 20px;
-    margin-bottom: 8px;
+}
+
+.notification-title {
+    display: flex;
+    gap: 16px;
+}
+
+.cross {
+    display: flex;
 }
 
 .notification-frame {
     display: flex;
+    width: 479px;
+    height: 72px;
     padding: 0px 0px 0px 48px;
     color: grey;
-    font-size: 16px;
+    font-size: 16.8px; /* pas trouvé mieux pour aligner avec la croix, question à poser*/
 }
 </style>

@@ -4,7 +4,7 @@
   max-width: 1280px;
   margin: 0 auto;
   padding: 2rem;
-  font-weight: normal;
+  
 }
 
 a,
@@ -25,11 +25,11 @@ a,
   body {
     display: flex;
     place-items: center;
-  }
-
-  #app {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    padding: 0 2rem;
+    width: 559px;
+    height: 808px;
+    top: -404px;
+    left: -280px;
+    border: 1px 0px 0px 0px;
+    opacity: 0px;
   }
 }
