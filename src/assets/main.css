@@ -24,11 +24,9 @@ a,
 @media (min-width: 1024px) {
   body {
     display: flex;
+    flex-direction: column;
+    justify-content: center;
     place-items: center;
-    width: 559px;
-    height: 808px;
-    top: -404px;
-    left: -280px;
     border: 1px 0px 0px 0px;
     opacity: 0px;
   }

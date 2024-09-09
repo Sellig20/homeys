@@ -1,6 +1,6 @@
 <template>
   <div class="notification-container">
-    <button v-if="isButtonDisplay" @click="showNotif">Display notifications
+    <button class="buttonDisplay" v-if="isButtonDisplay" @click="showNotif">Display notifications
     </button>
     <base-notification 
     v-for="notification in notifications" :notificationId="notification.id" :title="notification.title" :icon="notification.icon" :color="notification.color" :borderColor="notification.borderColor" :alt="notification.alt"
@@ -47,5 +47,9 @@ export default {
   height: 100vh;
   gap: 20px;
   align-items: center;
+}
+
+.buttonDisplay {
+  
 }
 </style>
