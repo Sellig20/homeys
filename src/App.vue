@@ -1,9 +1,11 @@
 <template>
   <div class="notification-container">
+    <button @click="showNotif">Display notifications</button>
     <base-notification 
     v-for="notification in notifications" :notificationId="notification.id" :title="notification.title" :icon="notification.icon" :color="notification.color" :borderColor="notification.borderColor" :alt="notification.alt"
-    @delete="deleteNotif" 
-    />
+    v-if="isNotifDisplayed"
+    @delete="deleteNotif"
+  />
   </div>
 </template>
 
@@ -18,16 +20,20 @@ export default {
         { id: 1, title: 'Danger', icon: '/src/assets/icons/Danger.svg', color: '#F7E4E4', borderColor: '#D29393', alt: 'Danger'},
         { id: 2, title: 'CheckCircle', icon: '/src/assets/icons/CheckCircle.svg', color: '#E4F7E8', borderColor: '#89B291', alt: 'CheckCircle'},
         { id: 3, title: 'Warning', icon: '/src/assets/icons/Warning.svg', color: '#F7F2E4', borderColor: '#D4C296', alt: 'Warning'},
-        { id: 4, title: 'Info', icon: '/src/assets/icons/Info.svg', color: '#E4E9F7', borderColor: '#96A8D8', alt: 'Info'},
-      ]
+        { id: 4, title: 'Info', icon: '/src/assets/icons/Info.svg', color: '#E4E9F7', borderColor: '#96A8D8', alt: 'Info'}
+      ],
+      isNotifDisplayed: false,
     };
   },
   methods: {
+    showNotif() {
+      this.isNotifDisplayed = true;
+    },
     deleteNotif(notificationId) {
       this.notifications = this.notifications.filter(notification => notificationId !== notification.id);
     }
   }
-}
+};
 </script>
 
 <style scoped>

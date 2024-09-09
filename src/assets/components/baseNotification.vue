@@ -1,18 +1,18 @@
 <template>
-        <div class="notification" :style="notificationStyle">
-            <div class="notification-modal-header">
-                <div class="notification-title">
-                    <img :src="icon" alt="notification">
-                    <p>{{title}}</p>
-                </div>
-                <button @click="handleDelete" class="cross">
-                    X
-                </button>
+    <div class="notification" :style="notificationStyle">
+        <div class="notification-modal-header">
+            <div class="notification-title">
+                <img :src="icon" alt="notification">
+                <p>{{title}}</p>
             </div>
-            <div class="notification-frame">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor</p>
-            </div>
+            <button @click="handleDelete" class="cross">
+                X
+            </button>
         </div>
+        <div class="notification-frame">
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit ut aliquam, purus sit amet luctus venenatis, lectus magna fringilla urna, porttitor</p>
+        </div>
+    </div>
 </template>
 
 <script>
@@ -29,7 +29,7 @@ export default {
     methods: {
         handleDelete() {
             this.$emit('delete', this.notificationId)
-        }
+        },
     },
     computed: {
         notificationStyle() {
@@ -85,6 +85,6 @@ export default {
     height: 72px;
     padding: 0px 0px 0px 48px;
     color: grey;
-    font-size: 16.8px; /* pas trouvé mieux pour aligner avec la croix, question à poser*/
+    font-size: 17.4px; /* pas trouvé mieux pour aligner avec la croix, question à poser*/
 }
 </style>
