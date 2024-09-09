@@ -1,6 +1,7 @@
 <template>
   <div class="notification-container">
-    <button @click="showNotif">Display notifications</button>
+    <button v-if="isButtonDisplay" @click="showNotif">Display notifications
+    </button>
     <base-notification 
     v-for="notification in notifications" :notificationId="notification.id" :title="notification.title" :icon="notification.icon" :color="notification.color" :borderColor="notification.borderColor" :alt="notification.alt"
     v-if="isNotifDisplayed"
@@ -23,11 +24,13 @@ export default {
         { id: 4, title: 'Info', icon: '/src/assets/icons/Info.svg', color: '#E4E9F7', borderColor: '#96A8D8', alt: 'Info'}
       ],
       isNotifDisplayed: false,
+      isButtonDisplay: true,
     };
   },
   methods: {
     showNotif() {
       this.isNotifDisplayed = true;
+      this.isButtonDisplay = false;
     },
     deleteNotif(notificationId) {
       this.notifications = this.notifications.filter(notification => notificationId !== notification.id);
